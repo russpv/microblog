@@ -1,0 +1,29 @@
+*.py[cod]
+
+# C extensions
+*.so
+
+# Packages
+
+# ignore environment vars
+.env
+
+
+# Translations
+*.mo
+
+# Unit test reports
+.coverage
+.tox
+nosetests.xml
+
+# Installer logs
+pip-log.txt
+
+venv
+migrations
+app.db
+microblog.log
+.idea
+logs
+.DS_Store
