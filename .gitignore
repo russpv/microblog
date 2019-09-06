@@ -21,7 +21,6 @@ nosetests.xml
 pip-log.txt
 
 venv
-migrations
 app.db
 microblog.log
 .idea
