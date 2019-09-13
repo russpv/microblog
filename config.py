@@ -21,3 +21,4 @@ class Config(object):
     LANGUAGES = ['en', 'es']
     MS_TRANSLATOR_KEY = os.getenv('MS_TRANSLATOR_KEY')  # do not add API keys to code
     ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
+    LOG_TO_STDOUT = os.environ.get('LOG_TO_STDOUT')  # for Heroku Ephemeral File Sys
