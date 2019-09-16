@@ -18,7 +18,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
-            flash(_('Invalid username or password'))
+            flash(_('Invalid username or password.'))
             return redirect(url_for('auth.login'))
         login_user(user, remember=form.remember_me.data)  # Flask-Login function
         next_page = request.args.get('next')  # process orig-page redirect in request.args /login?next=/index
@@ -45,7 +45,7 @@ def register():
         db.session.add(user)  # Why is this explicit necessary when not elsewhere? To create row?
         db.session.commit()
         flash(_('Congratulations, you are now a registered user!'))
-        return redirect(url_for('login'))  # redirect to prompt so user can log in
+        return redirect(url_for('auth.login'))  # redirect to prompt so user can log in
     return render_template('auth/register.html', title=_('Register'),
                            form=form)
 
@@ -59,7 +59,7 @@ def reset_password_request():
         user = User.query.filter_by(email=form.email.data).first()  # check email exists in user database
         if user:
             send_password_reset_email(user)
-        flash(_('Check your email for the instructions to reset your password'))  # displays in all conditions for security
+        flash(_('Check your email for instructions on how to reset your password.'))  # displays in all conditions for security
         return redirect(url_for('auth.login'))
     return render_template('auth/reset_password_request.html',
                            title=_('Reset Password'), form=form)
